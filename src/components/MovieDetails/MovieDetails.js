@@ -1,13 +1,15 @@
 //TODO: заглушки для фото, года, жанров, оценки
 
-import { Outlet } from 'react-router-dom';
-import { Wrapper, ImgBox, Img } from './MovieDetails.styled';
+import { Outlet, Link, useParams } from 'react-router-dom';
+import { Wrapper, CardWrapper, ImgBox, Img } from './MovieDetails.styled';
 
 export function MovieDetails({ details }) {
   const { title, desc, img, year, votes, genres } = details;
+  let { movieId } = useParams();
+
   return (
-    <>
-      <Wrapper>
+    <Wrapper>
+      <CardWrapper>
         <ImgBox>
           <Img src={img} alt={title} />
         </ImgBox>
@@ -21,9 +23,19 @@ export function MovieDetails({ details }) {
           <h3>Genres</h3>
           <p>{genres}</p>
         </div>
-      </Wrapper>
+      </CardWrapper>
+      <hr />
+      <p>Additional information</p>
+      <ul>
+        <li>
+          <Link to={`/movies/${movieId}/cast`}>Cast</Link>
+        </li>
+        <li>
+          <Link to={`/movies/${movieId}/reviews`}>Reviews</Link>
+        </li>
+      </ul>
       <hr />
       <Outlet />
-    </>
+    </Wrapper>
   );
 }
