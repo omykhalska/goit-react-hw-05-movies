@@ -1,19 +1,24 @@
-import { Routes, Route } from 'react-router-dom';
-import { Container } from './App.styled.jsx';
-import AppBar from './components/AppBar';
-import HomePage from './pages/HomePage';
-import MoviesPage from './pages/MoviesPage';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import { Layout } from './components/Layout';
+import { HomePage, MoviesPage, MovieDetailsPage } from './pages';
 
 function App() {
   return (
-    <Container>
-      <AppBar />
-
+    <>
       <Routes>
-        <Route path="/" element={<HomePage />}></Route>
-        <Route path="/movies" element={<MoviesPage />}></Route>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
+          <Route path="movies" element={<MoviesPage />} />
+          <Route path="movies/:movieId" element={<MovieDetailsPage />}>
+            {/* <Route path="cast" element={<Cast />} /> */}
+            <Route path="cast" element={<div>Cast</div>} />
+            {/* <Route path="reviews" element={<Reviews />} /> */}
+            <Route path="reviews" element={<div>Reviews</div>} />
+          </Route>
+          <Route path="*" element={<Navigate to="/" />} />
+        </Route>
       </Routes>
-    </Container>
+    </>
   );
 }
 
