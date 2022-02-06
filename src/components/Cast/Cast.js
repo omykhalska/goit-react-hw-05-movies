@@ -10,10 +10,7 @@ export function Cast({ data }) {
           </ImgBox>
           <div>
             <Name>{name}</Name>
-            <p>
-              <Character>Character: </Character>
-              {character}
-            </p>
+            <Character>as {character}</Character>
           </div>
         </Card>
       ))}

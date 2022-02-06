@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import { fetchMovieById } from '../services';
 import { Loader } from '../components/Loader';
 import { MovieDetails } from '../components/MovieDetails';
+import { ErrorMessage } from '../components/ErrorMessage';
 
 export function MovieDetailsPage() {
   const [details, setDetails] = useState({});
@@ -44,7 +45,7 @@ export function MovieDetailsPage() {
     <>
       {loading && <Loader />}
       {!error && <MovieDetails details={details} />}
-      {error && <h2>Something went wrong...</h2>}
+      {error && <ErrorMessage />}
     </>
   );
 }

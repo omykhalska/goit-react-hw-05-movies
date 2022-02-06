@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { fetchPopularMovies } from '../services';
+import { MoviesList } from '../components/MoviesList';
 import { Loader } from '../components/Loader';
+import { ErrorMessage } from '../components/ErrorMessage';
 
 export function HomePage() {
   const [movies, setMovies] = useState([]);
@@ -24,18 +25,8 @@ export function HomePage() {
     <>
       <h1>Trending today</h1>
       {loading && <Loader />}
-
-      {!error && (
-        <ul>
-          {movies.map(({ id, title }) => (
-            <li key={id}>
-              <Link to={`/movies/${id}`}>{title}</Link>
-            </li>
-          ))}
-        </ul>
-      )}
-
-      {error && <h2>Something went wrong...</h2>}
+      {!error && <MoviesList movies={movies} />}
+      {error && <ErrorMessage />}
     </>
   );
 }

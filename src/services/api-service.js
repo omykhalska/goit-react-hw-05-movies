@@ -20,3 +20,9 @@ export async function fetchMovieCredits(movieId) {
   const { data } = await axios(url);
   return data;
 }
+
+export async function fetchMovieReviews(movieId) {
+  const url = `${BASE_URL}/movie/${movieId}/reviews?api_key=${API_KEY}`;
+  const { data } = await axios(url);
+  return data;
+}

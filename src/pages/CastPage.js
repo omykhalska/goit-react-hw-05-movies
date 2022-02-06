@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { fetchMovieCredits } from '../services';
 import { Loader } from '../components/Loader';
 import { Cast } from '../components/Cast';
+import { ErrorMessage } from '../components/ErrorMessage';
 import imgPlaceholder from '../images/no-image.png';
 
 export function CastPage() {
@@ -36,7 +37,7 @@ export function CastPage() {
     <>
       {loading && <Loader />}
       {!error && <Cast data={cast} />}
-      {error && <h2>Something went wrong...</h2>}
+      {error && <ErrorMessage />}
     </>
   );
 }
