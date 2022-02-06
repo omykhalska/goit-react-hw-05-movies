@@ -6,10 +6,11 @@ export const Wrapper = styled.div`
 export const CardWrapper = styled.div`
   display: flex;
   gap: 20px;
+  align-items: center;
 `;
 
 export const ImgBox = styled.div`
-  flex-basis: 250px;
+  max-width: 250px;
 `;
 
 export const Img = styled.img`

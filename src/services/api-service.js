@@ -14,3 +14,9 @@ export async function fetchMovieById(movieId) {
   const { data } = await axios(url);
   return data;
 }
+
+export async function fetchMovieCredits(movieId) {
+  const url = `${BASE_URL}/movie/${movieId}/credits?api_key=${API_KEY}`;
+  const { data } = await axios(url);
+  return data;
+}

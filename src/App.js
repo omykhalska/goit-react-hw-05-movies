@@ -1,6 +1,6 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { Layout } from './components/Layout';
-import { HomePage, MoviesPage, MovieDetailsPage } from './pages';
+import { HomePage, MoviesPage, MovieDetailsPage, CastPage } from './pages';
 
 function App() {
   return (
@@ -10,8 +10,7 @@ function App() {
           <Route index element={<HomePage />} />
           <Route path="movies" element={<MoviesPage />} />
           <Route path="movies/:movieId" element={<MovieDetailsPage />}>
-            {/* <Route path="cast" element={<Cast />} /> */}
-            <Route path="cast" element={<div>Cast</div>} />
+            <Route path="cast" element={<CastPage />} />
             {/* <Route path="reviews" element={<Reviews />} /> */}
             <Route path="reviews" element={<div>Reviews</div>} />
           </Route>
