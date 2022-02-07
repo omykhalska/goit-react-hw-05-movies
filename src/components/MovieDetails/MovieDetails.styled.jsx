@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
 export const CardWrapper = styled.div`
-  /* padding: 0; */
+  padding-top: 24px;
   display: flex;
+  align-items: center;
   gap: 30px;
 `;
 

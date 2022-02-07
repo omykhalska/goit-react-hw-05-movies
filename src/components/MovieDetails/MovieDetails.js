@@ -8,21 +8,21 @@ export function MovieDetails({ details }) {
 
   return (
     <>
-      <PageTitle text={`${title} (${year})`} />
       <CardWrapper>
         <ImgBox>
           <Img src={img} alt={title} />
         </ImgBox>
         <div>
-          <p>User Score: {votes}%</p>
+          <PageTitle text={`${title} (${year})`} />
+          <p>User Score: {votes}</p>
           <h2>Overview</h2>
           <p>{desc}</p>
-          <h3>Genres</h3>
+          <h2>Genres</h2>
           <p>{genres}</p>
         </div>
       </CardWrapper>
       <hr />
-      <b>Additional information</b>
+      <h3>Additional information</h3>
       <ul>
         <li>
           <Link to={`/movies/${movieId}/cast`}>Cast</Link>

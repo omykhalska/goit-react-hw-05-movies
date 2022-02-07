@@ -4,7 +4,7 @@ import { fetchMovieById } from '../services';
 import { Loader } from '../components/Loader';
 import { MovieDetails } from '../components/MovieDetails';
 import { ErrorMessage } from '../components/ErrorMessage';
-import imgPlaceholder from '../images/no-image.png';
+import imgPlaceholder from '../images/no-poster-available.png';
 
 export function MovieDetailsPage() {
   const [details, setDetails] = useState({});
@@ -27,13 +27,16 @@ export function MovieDetailsPage() {
         }) => {
           const details = {
             title,
-            desc: overview,
+            desc: overview ? overview : 'There is no overview',
             img: poster_path
               ? 'https://image.tmdb.org/t/p/w500' + poster_path
               : imgPlaceholder,
-            year: release_date.slice(0, 4),
-            votes: vote_average * 10,
-            genres: genres.map(genre => genre.name).join(', '),
+            year: release_date ? release_date.slice(0, 4) : 'year n/a',
+            votes: vote_average ? vote_average * 10 + '%' : 'no rating yet',
+            genres:
+              genres.length === 0
+                ? 'Genres not defined.'
+                : genres.map(genre => genre.name).join(', '),
           };
           setDetails(details);
         },

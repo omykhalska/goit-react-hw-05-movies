@@ -4,7 +4,7 @@ import { PageTitle } from '../components/PageTitle';
 import { MoviesList } from '../components/MoviesList';
 import { Loader } from '../components/Loader';
 import { ErrorMessage } from '../components/ErrorMessage';
-import imgPlaceholder from '../images/no-image.png';
+import imgPlaceholder from '../images/no-poster-available.png';
 
 export function HomePage() {
   const [movies, setMovies] = useState([]);
@@ -31,7 +31,7 @@ export function HomePage() {
 
   return (
     <>
-      <PageTitle text="Trending today" />
+      <PageTitle text="Trending today" center />
       {loading && <Loader />}
       {!error && <MoviesList movies={movies} />}
       {error && <ErrorMessage />}

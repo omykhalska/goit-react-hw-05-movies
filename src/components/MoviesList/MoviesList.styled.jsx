@@ -18,6 +18,7 @@ export const Card = styled.li`
   flex-basis: calc(100% - 20px);
   border-radius: 5px;
   overflow: hidden;
+  background: #fafafa;
   transition: all 500ms ease-in-out;
 
   &:hover {
@@ -40,7 +41,8 @@ export const Img = styled.img`
 `;
 
 export const Title = styled.p`
-  margin-top: 10px;
+  margin-top: 12px;
+  padding: 0 4px;
   text-align: center;
   font-weight: 700;
   line-height: 1.33;

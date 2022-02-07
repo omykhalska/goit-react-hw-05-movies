@@ -26,3 +26,9 @@ export async function fetchMovieReviews(movieId) {
   const { data } = await axios(url);
   return data;
 }
+
+export async function fetchMoviesBySearch(query) {
+  const url = `${BASE_URL}/search/movie?api_key=${API_KEY}&query=${query}`;
+  const { data } = await axios(url);
+  return data;
+}
