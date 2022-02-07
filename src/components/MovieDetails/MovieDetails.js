@@ -1,13 +1,16 @@
-import { Outlet, Link, useParams } from 'react-router-dom';
+import { Outlet, Link, useParams, useLocation } from 'react-router-dom';
 import { CardWrapper, ImgBox, Img } from './MovieDetails.styled';
 import { PageTitle } from '../PageTitle';
 
 export function MovieDetails({ details }) {
   const { title, desc, img, year, votes, genres } = details;
   let { movieId } = useParams();
+  const location = useLocation();
+  console.log(location);
 
   return (
     <>
+      <Link to={location?.state?.from ?? '/movies'}>← Go Back</Link>
       <CardWrapper>
         <ImgBox>
           <Img src={img} alt={title} />
@@ -25,10 +28,14 @@ export function MovieDetails({ details }) {
       <h3>Additional information</h3>
       <ul>
         <li>
-          <Link to={`/movies/${movieId}/cast`}>Cast</Link>
+          <Link to={`/movies/${movieId}/cast`} state={{ from: location }}>
+            Cast
+          </Link>
         </li>
         <li>
-          <Link to={`/movies/${movieId}/reviews`}>Reviews</Link>
+          <Link to={`/movies/${movieId}/reviews`} state={{ from: location }}>
+            Reviews
+          </Link>
         </li>
       </ul>
       <hr />
