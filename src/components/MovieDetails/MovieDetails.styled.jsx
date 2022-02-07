@@ -1,19 +1,17 @@
 import styled from 'styled-components';
-export const Wrapper = styled.div`
-  padding: 24px 24px 8px 24px;
-`;
 
 export const CardWrapper = styled.div`
+  /* padding: 0; */
   display: flex;
-  gap: 20px;
-  align-items: center;
+  gap: 30px;
 `;
 
 export const ImgBox = styled.div`
-  max-width: 250px;
+  max-width: 280px;
 `;
 
 export const Img = styled.img`
+  display: block;
   width: 100%;
   height: auto;
 `;

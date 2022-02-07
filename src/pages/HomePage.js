@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
 import { fetchPopularMovies } from '../services';
+import { Title } from '../components/Title';
 import { MoviesList } from '../components/MoviesList';
 import { Loader } from '../components/Loader';
 import { ErrorMessage } from '../components/ErrorMessage';
+import imgPlaceholder from '../images/no-image.png';
 
 export function HomePage() {
   const [movies, setMovies] = useState([]);
@@ -13,8 +15,14 @@ export function HomePage() {
     setLoading(true);
 
     fetchPopularMovies()
-      .then(data => {
-        const movies = data.results.map(({ id, title }) => ({ id, title }));
+      .then(({ results }) => {
+        const movies = results.map(({ id, title, poster_path }) => ({
+          id,
+          title,
+          poster: poster_path
+            ? 'https://image.tmdb.org/t/p/w500' + poster_path
+            : imgPlaceholder,
+        }));
         setMovies(movies);
       })
       .catch(({ message }) => setError(message))
@@ -23,7 +31,7 @@ export function HomePage() {
 
   return (
     <>
-      <h1>Trending today</h1>
+      <Title text="Trending today" />
       {loading && <Loader />}
       {!error && <MoviesList movies={movies} />}
       {error && <ErrorMessage />}

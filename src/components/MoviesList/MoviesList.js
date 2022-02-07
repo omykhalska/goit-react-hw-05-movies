@@ -1,13 +1,16 @@
-import { Link } from 'react-router-dom';
+import { Wrapper, Card, CardLink, Img, Title } from './MoviesList.styled';
 
 export function MoviesList({ movies }) {
   return (
-    <ul>
-      {movies.map(({ id, title }) => (
-        <li key={id}>
-          <Link to={`/movies/${id}`}>{title}</Link>
-        </li>
+    <Wrapper>
+      {movies.map(({ id, title, poster }) => (
+        <Card key={id}>
+          <CardLink to={`/movies/${id}`}>
+            <Img src={poster} alt={title} />
+            <Title>{title}</Title>
+          </CardLink>
+        </Card>
       ))}
-    </ul>
+    </Wrapper>
   );
 }

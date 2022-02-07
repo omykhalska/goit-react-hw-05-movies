@@ -1,11 +1,10 @@
-//TODO: компонент OnError
-
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { fetchMovieById } from '../services';
 import { Loader } from '../components/Loader';
 import { MovieDetails } from '../components/MovieDetails';
 import { ErrorMessage } from '../components/ErrorMessage';
+import imgPlaceholder from '../images/no-image.png';
 
 export function MovieDetailsPage() {
   const [details, setDetails] = useState({});
@@ -29,7 +28,9 @@ export function MovieDetailsPage() {
           const details = {
             title,
             desc: overview,
-            img: 'https://image.tmdb.org/t/p/w500' + poster_path,
+            img: poster_path
+              ? 'https://image.tmdb.org/t/p/w500' + poster_path
+              : imgPlaceholder,
             year: release_date.slice(0, 4),
             votes: vote_average * 10,
             genres: genres.map(genre => genre.name).join(', '),

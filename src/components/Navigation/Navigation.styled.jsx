@@ -9,10 +9,11 @@ export const Nav = styled.nav`
 export const StyledNavLink = styled(NavLink)`
   text-decoration: none;
   font-size: 20px;
-  color: black;
+  text-transform: uppercase;
+  color: white;
 
   &.active {
     font-weight: 700;
-    color: red;
+    color: tomato;
   }
 `;
