@@ -1,6 +1,6 @@
 import { Outlet, Link, useParams } from 'react-router-dom';
 import { CardWrapper, ImgBox, Img } from './MovieDetails.styled';
-import { Title } from '../Title';
+import { PageTitle } from '../PageTitle';
 
 export function MovieDetails({ details }) {
   const { title, desc, img, year, votes, genres } = details;
@@ -8,7 +8,7 @@ export function MovieDetails({ details }) {
 
   return (
     <>
-      <Title text={`${title} (${year})`} />
+      <PageTitle text={`${title} (${year})`} />
       <CardWrapper>
         <ImgBox>
           <Img src={img} alt={title} />

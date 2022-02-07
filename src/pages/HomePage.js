@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { fetchPopularMovies } from '../services';
-import { Title } from '../components/Title';
+import { PageTitle } from '../components/PageTitle';
 import { MoviesList } from '../components/MoviesList';
 import { Loader } from '../components/Loader';
 import { ErrorMessage } from '../components/ErrorMessage';
@@ -31,7 +31,7 @@ export function HomePage() {
 
   return (
     <>
-      <Title text="Trending today" />
+      <PageTitle text="Trending today" />
       {loading && <Loader />}
       {!error && <MoviesList movies={movies} />}
       {error && <ErrorMessage />}
