@@ -4,7 +4,7 @@ import { LoaderWrapper } from './Loader.styled';
 export function Loader() {
   return (
     <LoaderWrapper>
-      <BallTriangle color="red" ariaLabel="loading" />
+      <BallTriangle color="#333" ariaLabel="loading" />
     </LoaderWrapper>
   );
 }

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Outlet, Link, useParams, useLocation } from 'react-router-dom';
 import { CardWrapper, ImgBox, Img, Title } from './MovieDetails.styled';
 import { GoBackButton } from '../GoBackButton';
@@ -50,3 +51,14 @@ export function MovieDetails({ details }) {
     </>
   );
 }
+
+MovieDetails.propTypes = {
+  details: PropTypes.shape({
+    title: PropTypes.string,
+    desc: PropTypes.string,
+    img: PropTypes.string,
+    year: PropTypes.string,
+    votes: PropTypes.string,
+    genres: PropTypes.string,
+  }).isRequired,
+};

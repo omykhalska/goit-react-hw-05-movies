@@ -1,5 +1,5 @@
 import { useLocation } from 'react-router-dom';
-
+import PropTypes from 'prop-types';
 import { Wrapper, Card, CardLink, Img, Title } from './MoviesList.styled';
 
 export function MoviesList({ movies }) {
@@ -18,3 +18,7 @@ export function MoviesList({ movies }) {
     </Wrapper>
   );
 }
+
+MoviesList.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
+};

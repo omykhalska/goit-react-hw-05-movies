@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import { Button } from './GoBackButton.styled';
 
@@ -10,3 +11,7 @@ export function GoBackButton({ location }) {
     </Button>
   );
 }
+
+GoBackButton.propTypes = {
+  location: PropTypes.object.isRequired,
+};

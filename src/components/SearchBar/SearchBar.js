@@ -1,4 +1,5 @@
 import { FaSearch } from 'react-icons/fa';
+import PropTypes from 'prop-types';
 
 import { Form, Input, SearchBtn } from './SearchBar.styled';
 
@@ -17,3 +18,7 @@ export function SearchBar({ onFormSubmit }) {
     </Form>
   );
 }
+
+SearchBar.propTypes = {
+  onFormSubmit: PropTypes.func.isRequired,
+};

@@ -31,7 +31,7 @@ export function HomePage() {
 
   return (
     <>
-      <PageTitle text="Trending today" center />
+      <PageTitle text="Trending today" />
       {loading && <Loader />}
       {!error && <MoviesList movies={movies} />}
       {error && <ErrorMessage />}
