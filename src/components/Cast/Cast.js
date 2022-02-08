@@ -10,7 +10,7 @@ export function Cast({ data }) {
           </ImgBox>
           <div>
             <Name>{name}</Name>
-            <Character>as {character}</Character>
+            {character && <Character>as {character}</Character>}
           </div>
         </Card>
       ))}

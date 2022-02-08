@@ -1,22 +1,23 @@
 import { Outlet, Link, useParams, useLocation } from 'react-router-dom';
-import { CardWrapper, ImgBox, Img } from './MovieDetails.styled';
-import { PageTitle } from '../PageTitle';
+import { CardWrapper, ImgBox, Img, Title } from './MovieDetails.styled';
+import { GoBackButton } from '../GoBackButton';
 
 export function MovieDetails({ details }) {
   const { title, desc, img, year, votes, genres } = details;
   let { movieId } = useParams();
   const location = useLocation();
-  console.log(location);
 
   return (
     <>
-      <Link to={location?.state?.from ?? '/movies'}>← Go Back</Link>
+      <GoBackButton location={location} />
       <CardWrapper>
         <ImgBox>
           <Img src={img} alt={title} />
         </ImgBox>
         <div>
-          <PageTitle text={`${title} (${year})`} />
+          <Title>
+            {title} ({year})
+          </Title>
           <p>User Score: {votes}</p>
           <h2>Overview</h2>
           <p>{desc}</p>
@@ -28,12 +29,18 @@ export function MovieDetails({ details }) {
       <h3>Additional information</h3>
       <ul>
         <li>
-          <Link to={`/movies/${movieId}/cast`} state={{ from: location }}>
+          <Link
+            to={`/movies/${movieId}/cast`}
+            state={location?.state && { from: location.state.from }}
+          >
             Cast
           </Link>
         </li>
         <li>
-          <Link to={`/movies/${movieId}/reviews`} state={{ from: location }}>
+          <Link
+            to={`/movies/${movieId}/reviews`}
+            state={location?.state && { from: location.state.from }}
+          >
             Reviews
           </Link>
         </li>

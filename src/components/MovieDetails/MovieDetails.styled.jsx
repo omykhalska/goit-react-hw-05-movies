@@ -7,6 +7,10 @@ export const CardWrapper = styled.div`
   gap: 30px;
 `;
 
+export const Title = styled.h1`
+  margin-top: 0;
+`;
+
 export const ImgBox = styled.div`
   max-width: 280px;
 `;

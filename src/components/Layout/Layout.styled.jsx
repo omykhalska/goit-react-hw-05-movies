@@ -6,5 +6,5 @@ export const Header = styled.header`
 `;
 
 export const Main = styled.main`
-  padding: 0 24px;
+  padding: 8px 24px;
 `;
