@@ -1,13 +1,6 @@
 import { lazy } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { Layout } from './components/Layout';
-// import {
-//   HomePage,
-//   MoviesPage,
-//   MovieDetailsPage,
-//   CastPage,
-//   ReviewsPage,
-// } from './pages';
 const makeChunk = componentName => {
   return lazy(() =>
     import(`./pages/${componentName}`).then(module => ({
