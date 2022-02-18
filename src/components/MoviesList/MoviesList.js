@@ -35,4 +35,6 @@ export function MoviesList({ movies, handleLoadMoreBtn, isLastPage }) {
 
 MoviesList.propTypes = {
   movies: PropTypes.arrayOf(PropTypes.object).isRequired,
+  handleLoadMoreBtn: PropTypes.func.isRequired,
+  isLastPage: PropTypes.bool,
 };
