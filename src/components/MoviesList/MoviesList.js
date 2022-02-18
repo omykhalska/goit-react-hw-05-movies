@@ -1,6 +1,13 @@
 import { useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { Wrapper, Card, CardLink, Img, Title } from './MoviesList.styled';
+import {
+  Wrapper,
+  Card,
+  CardLink,
+  Img,
+  Title,
+  LoadMoreBtn,
+} from './MoviesList.styled';
 
 export function MoviesList({ movies, handleLoadMoreBtn, isLastPage }) {
   const location = useLocation();
@@ -18,9 +25,9 @@ export function MoviesList({ movies, handleLoadMoreBtn, isLastPage }) {
         ))}
       </Wrapper>
       {!isLastPage && (
-        <button type="button" onClick={handleLoadMoreBtn}>
+        <LoadMoreBtn type="button" onClick={handleLoadMoreBtn}>
           Load more
-        </button>
+        </LoadMoreBtn>
       )}
     </>
   );

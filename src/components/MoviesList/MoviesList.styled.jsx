@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { Button } from '../GoBackButton/GoBackButton.styled';
 
 export const Wrapper = styled.ul`
   padding: 0;
   margin-left: -20px;
   margin-top: -20px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   flex-wrap: wrap;
   list-style: none;
 `;
@@ -47,4 +48,9 @@ export const Title = styled.p`
   font-weight: 700;
   line-height: 1.33;
   text-transform: uppercase;
+`;
+
+export const LoadMoreBtn = styled(Button)`
+  margin: 0 auto;
+  display: block;
 `;
