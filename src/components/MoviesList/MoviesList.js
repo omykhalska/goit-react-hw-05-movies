@@ -9,7 +9,11 @@ import {
   LoadMoreBtn,
 } from './MoviesList.styled';
 
-export function MoviesList({ movies, handleLoadMoreBtn, isLastPage }) {
+export function MoviesList({
+  movies,
+  handleLoadMoreBtn = null,
+  isLastPage = true,
+}) {
   const location = useLocation();
 
   return (
@@ -35,6 +39,6 @@ export function MoviesList({ movies, handleLoadMoreBtn, isLastPage }) {
 
 MoviesList.propTypes = {
   movies: PropTypes.arrayOf(PropTypes.object).isRequired,
-  handleLoadMoreBtn: PropTypes.func.isRequired,
+  handleLoadMoreBtn: PropTypes.func,
   isLastPage: PropTypes.bool,
 };

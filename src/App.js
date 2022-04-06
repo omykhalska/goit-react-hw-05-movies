@@ -1,6 +1,7 @@
 import { lazy } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { Layout } from './components/Layout';
+
 const makeChunk = componentName => {
   return lazy(() =>
     import(`./pages/${componentName}`).then(module => ({
